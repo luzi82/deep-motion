@@ -337,16 +337,16 @@ def main():
         # np.save("y_CORE1_small_train_" + str(i), y)
 
         # # code to inspect images in batch
-        for i in range(len(X)):
-            X_0 = X[i, :3, :, :]
-            X_1 = X[i, 3:, :, :]
+        for ii in range(len(X)):
+            X_0 = X[ii, :3, :, :]
+            X_1 = X[ii, 3:, :, :]
             X_blend = (X_0 + X_1) * 255. / 2
             plt.figure()
             plt.title("First Frame")
             plt.imshow((np.transpose(X_0, (1, 2, 0))*255).astype("uint8"))
             plt.figure()
             plt.title("Middle Frame")
-            plt.imshow((np.transpose(y[i], (1, 2, 0))*255).astype("uint8"))
+            plt.imshow((np.transpose(y[ii], (1, 2, 0))*255).astype("uint8"))
             plt.figure()
             plt.title("Last Frame")
             plt.imshow((np.transpose(X_1, (1, 2, 0))*255).astype("uint8"))
