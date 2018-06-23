@@ -317,7 +317,7 @@ def main():
     # for X, y in batch_generator(batch_size=BATCH_SIZE, num_channels=3, batch_image_size = "random"):
     while i < MAX_BATCHES:
         try:
-            X, y = gen.next()
+            X, y = next(gen)
         except:
             print("ERROR: BATCH GEN FAILED, skipping...")
             continue
