@@ -3,6 +3,7 @@
 
 import sys
 import os
+import traceback
 import math
 import time
 import random
@@ -321,6 +322,8 @@ def main():
             X, y = next(gen)
         except:
             print("ERROR: BATCH GEN FAILED, skipping...")
+            traceback.print_exc()
+            sys.exit(1)
             continue
         print("Time for batch:", time.time() - batch_start_time, "seconds")
 
