@@ -353,6 +353,7 @@ def main():
             plt.figure()
             plt.title("Blended")
             plt.imshow(np.transpose(X_blend, (1, 2, 0)).astype("uint8"))
+            plt.show()
 
         # if i % 10 == 0:
         #     print "myBatchGenerator:", i, "batches done in", (time.time() - start_time) / 60.0, "minutes..."
