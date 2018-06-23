@@ -311,8 +311,10 @@ def main():
     start_time = time.time()
     i = 0
     batch_start_time = time.time()
-    BATCH_SIZE = 100
-    MAX_BATCHES = 100000 / BATCH_SIZE
+    # BATCH_SIZE = 100
+    # MAX_BATCHES = 100000 / BATCH_SIZE
+    BATCH_SIZE = 4
+    MAX_BATCHES = 4
 
     # gen = kitti_batch_generator(200)
     gen = batch_generator(batch_size=BATCH_SIZE, num_channels=3, batch_image_size=(36, 64))
