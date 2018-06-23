@@ -318,13 +318,13 @@ def main():
         try:
             X, y = gen.next()
         except:
-            print "ERROR: BATCH GEN FAILED, skipping..."
+            print("ERROR: BATCH GEN FAILED, skipping...")
             continue
-        print "Time for batch:", time.time() - batch_start_time, "seconds"
+        print("Time for batch:", time.time() - batch_start_time, "seconds")
 
-        print X.shape
-        print y.shape
-        print i
+        print(X.shape)
+        print(y.shape)
+        print(i)
 
         # np.save("X_CORE1_small_train_" + str(i), X)
         # np.save("y_CORE1_small_train_" + str(i), y)
@@ -354,7 +354,7 @@ def main():
         i += 1
 
         batch_start_time = time.time()
-    print time.time() - start_time
+    print(time.time() - start_time)
 
 
 if __name__ == '__main__':
