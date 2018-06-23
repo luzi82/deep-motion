@@ -313,8 +313,8 @@ def main():
     BATCH_SIZE = 100
     MAX_BATCHES = 100000 / BATCH_SIZE
 
-    gen = kitti_batch_generator(200)
-    # gen = batch_generator(batch_size=BATCH_SIZE, num_channels=3, batch_image_size=(36, 64))
+    # gen = kitti_batch_generator(200)
+    gen = batch_generator(batch_size=BATCH_SIZE, num_channels=3, batch_image_size=(36, 64))
     # for X, y in batch_generator(batch_size=BATCH_SIZE, num_channels=3, batch_image_size = "random"):
     while i < MAX_BATCHES:
         try:
