@@ -61,7 +61,7 @@ def crop(im, crop_size, crop_corner_loc="center", random_crop_amount=1.0, rand_s
         crop_corner_loc = crop_corner_loc
     elif crop_corner_loc == "random":
         # set crop_corner_loc to crop center
-        crop_corner_loc = ((im.shape[0] / 2) - (crop_size[0] / 2), (im.shape[1] / 2) - (crop_size[1] / 2))
+        crop_corner_loc = ((im.shape[0] // 2) - (crop_size[0] // 2), (im.shape[1] // 2) - (crop_size[1] // 2))
         # if random_crop_amount not a tuple, make it one, and use it's value for both row and col amounts
         if not isinstance(random_crop_amount, tuple):
             random_crop_amount = (random_crop_amount, random_crop_amount)
@@ -86,7 +86,7 @@ def crop(im, crop_size, crop_corner_loc="center", random_crop_amount=1.0, rand_s
 
     else:
         # set crop_corner_loc to crop center
-        crop_corner_loc = ((im.shape[0] / 2) - (crop_size[0] / 2), (im.shape[1] / 2) - (crop_size[1] / 2))
+        crop_corner_loc = ((im.shape[0] // 2) - (crop_size[0] // 2), (im.shape[1] / 2) - (crop_size[1] // 2))
 
     # crop image
     im = im[crop_corner_loc[0]: crop_corner_loc[0] + crop_size[0],
