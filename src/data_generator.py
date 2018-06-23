@@ -19,7 +19,8 @@ FFMPEG_BIN = "ffmpeg"
 FFPROBE_BIN = "ffprobe"
 
 # VID_DIR = "/media/neil/Neil's 5TB HDD/deep-motion_data/youtube-8m-videos"     # HDD too slow -_-
-VID_DIR = "/media/neil/Neil's 240GB SSD/deep-motion_data/youtube-8m-videos"
+# VID_DIR = "/media/neil/Neil's 240GB SSD/deep-motion_data/youtube-8m-videos"
+VID_DIR = "../data/youtube-8m-videos"
 
 KITTI_VID_DIR = "/media/neil/Neil's 240GB SSD/deep-motion_data/KITTI_RAW/train/"
 
