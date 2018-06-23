@@ -181,7 +181,7 @@ def batch_generator(batch_size, num_channels, batch_image_size):
             frames = np.fromstring(raw_image, dtype='uint8').reshape((frame_dist, 720, 1280, 3))
 
             first_frame_batch[i] = frames[0]
-            middle_frame_batch[i] = frames[len(frames)/2]
+            middle_frame_batch[i] = frames[math.floor(len(frames)/2)]
             last_frame_batch[i] = frames[-1]
 
             # throw away the data in the pipe's buffer.
