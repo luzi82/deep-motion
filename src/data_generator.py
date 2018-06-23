@@ -161,7 +161,7 @@ def batch_generator(batch_size, num_channels, batch_image_size):
             pipe = sp.Popen(command, stdout=sp.PIPE)
             pipe.stdout.readline()
             pipe.terminate()
-            infos = pipe.stdout.read()
+            infos = pipe.stdout.read().decode('utf-8')
             duration_index = infos.find("duration=") + 9
             duration_length = infos[duration_index:].find("\nsize=")
             duration = float(infos[duration_index:duration_index + duration_length])
