@@ -75,15 +75,18 @@ def main():
     # X_val = np.load("X_val.npy")[:100, :, :320].astype("float32") / 255.
     # y_val = np.load("y_val.npy")[:100, :, :320].astype("float32") / 255.
 
-    X_val = np.load("X_val_KITTI.npy").astype("float32") / 255.
-    y_val = np.load("y_val_KITTI.npy").astype("float32") / 255.
+    # X_val = np.load("X_val_KITTI.npy").astype("float32") / 255.
+    # y_val = np.load("y_val_KITTI.npy").astype("float32") / 255.
+    
+    X_val = np.load("../data/data_generator_output/data.0000.x.npy").astype("float32") / 255.
+    y_val = np.load("../data/data_generator_output/data.0000.y.npy").astype("float32") / 255.
 
     ##### MODEL SETUP #####
     # model = FI_CNN_model(NUM_CHANNELS)
     # model = FI_CNN_model_BN(NUM_CHANNELS)
     # model = get_unet()
-    model = get_unet_2(input_shape=(6, 128, 384))
-    # model = get_unet_3(input_shape=(6, 128, 384), batch_size=BATCH_SIZE)
+    model = get_unet_2(input_shape=(128, 384, 6))
+    # model = get_unet_3(input_shape=(128, 384, 6), batch_size=BATCH_SIZE)
 
     # optimizer = SGD(lr=LEARNING_RATE, decay = 0., momentum = 0.9, nesterov = True)
     optimizer = adam(lr=LEARNING_RATE, beta_1=0.9, beta_2=0.999, epsilon=1e-08)
