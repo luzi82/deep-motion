@@ -179,12 +179,12 @@ def main():
     hist = model.fit_generator(
         generator=batch_generator(BATCH_SIZE, NUM_CHANNELS, BATCH_IMAGE_SIZE),
         # samples_per_epoch=800,
-        samples_per_epoch=4,
-        nb_epoch=NUM_EPOCHS,
+        steps_per_epoch=4,
+        epochs=NUM_EPOCHS,
         callbacks=callbacks,
         validation_data=(X_val, y_val),
-        max_q_size=10,
-        nb_worker=1,
+        max_queue_size=10,
+        workers=1,
         # nb_worker=cpu_count(),
     )
 
