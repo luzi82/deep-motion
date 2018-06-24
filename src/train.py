@@ -157,9 +157,9 @@ def main():
     # callbacks.append(TensorBoard(log_dir="./../tensorboard_logs", write_graph=False))
 
     if LOAD_PRE_TRAINED_MODEL:
-        print ""
+        print("")
         logging.warning("LOADING PRE-TRAINED MODEL WEIGHTS!")
-        print ""
+        print("")
         model.load_weights("./../weights.hdf5")
         callbacks.append(CSVLogger("stats_per_epoch.csv", append=True))
     else:
@@ -170,7 +170,7 @@ def main():
     # BATCH_IMAGE_SIZE = "random"
     # BATCH_IMAGE_SIZE = (320, 640)
     BATCH_IMAGE_SIZE = (128, 384)
-    print "Begin training..."
+    print("Begin training...")
     hist = model.fit_generator(
         generator=batch_generator(BATCH_SIZE, NUM_CHANNELS, BATCH_IMAGE_SIZE),
         samples_per_epoch=800,
