@@ -309,6 +309,8 @@ def main():
     # np.save("y_small_test", y[110000:120000])
 
     ENABLE_PLT_SHOW = False
+    OUTPUT_X_FORMAT = '../data/data_generator_output/data.{0:04d}.x.npy'
+    OUTPUT_Y_FORMAT = '../data/data_generator_output/data.{0:04d}.y.npy'
 
     start_time = time.time()
     i = 0
@@ -337,6 +339,15 @@ def main():
 
         # np.save("X_CORE1_small_train_" + str(i), X)
         # np.save("y_CORE1_small_train_" + str(i), y)
+        
+        if OUTPUT_X_FORMAT is not None:
+            output = OUTPUT_X_FORMAT.format(i)
+            os.makedirs(os.path.dirname(output),exist_ok=True)
+            np.save(output,X)
+        if OUTPUT_Y_FORMAT is not None:
+            output = OUTPUT_Y_FORMAT.format(i)
+            os.makedirs(os.path.dirname(output),exist_ok=True)
+            np.save(output,y)
 
         # # code to inspect images in batch
         if ENABLE_PLT_SHOW:
