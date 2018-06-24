@@ -23,6 +23,7 @@ ydl_opts = {
 }
 
 # save all downloaded videos to proper folder
+os.makedirs("../data/youtube-8m-videos")
 os.chdir("../data/youtube-8m-videos")
 
 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
