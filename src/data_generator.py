@@ -244,7 +244,9 @@ def kitti_batch_generator(batch_size, frame_dists=(2, 4, 6), data_aug=True):
                     X[batch_i, :, :, 3:] = np.flipud(X[batch_i, :, :, 3:])
                     y[batch_i] = np.flipud(y[batch_i])
 
-        yield np.transpose(X, (0, 3, 1, 2)).astype("float32") / 255., np.transpose(y, (0, 3, 1, 2)).astype("float32") / 255.
+        X = X.astype("float32") / 255.
+        y = y.astype("float32") / 255.
+        yield X, y
 
 
 def main():
