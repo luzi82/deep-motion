@@ -123,7 +123,7 @@ def get_unet_2(input_shape):
 
     conv10 = Conv2D(int(input_shape[2]/2), (1, 1), activation='sigmoid')(bn9)
 
-    model = Model(input=inputs, output=conv10)
+    model = Model(inputs=[inputs], outputs=[conv10])
 
     return model
 
