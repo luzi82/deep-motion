@@ -44,8 +44,8 @@ BATCH_SIZE = 16
 NUM_EPOCHS = 1000
 NUM_CHANNELS = 3
 
-LOAD_PRE_TRAINED_MODEL = True
-DO_TESTING = True
+LOAD_PRE_TRAINED_MODEL = False
+DO_TESTING = False
 
 
 # need to use this when I require batches from an already memory-loaded X, y
