@@ -42,7 +42,7 @@ def load_vid(vid_path):
 
 def double_vid_fps(vid_arr):
 
-    model = get_unet_2((6, 128, 384))
+    model = get_unet_2((128, 384, 6))
     model.load_weights("./../model_weights/weights_unet2_finetune_youtube_100epochs.hdf5")
 
     # new_vid_arr = np.zeros(shape=(len(vid_arr)*2, 128, 384, 3))
