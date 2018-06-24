@@ -78,10 +78,10 @@ def main():
     # X_val = np.load("X_val_KITTI.npy").astype("float32") / 255.
     # y_val = np.load("y_val_KITTI.npy").astype("float32") / 255.
     
-    X_train = np.load("../data/data_generator_output/data.0000.x.npy").astype("float32") / 255.
-    y_train = np.load("../data/data_generator_output/data.0000.y.npy").astype("float32") / 255.
-    X_val   = np.load("../data/data_generator_output/data.0001.x.npy").astype("float32") / 255.
-    y_val   = np.load("../data/data_generator_output/data.0001.y.npy").astype("float32") / 255.
+    X_train = np.load("../data/data_generator_output/data.0000.x.npy").astype("float32")
+    y_train = np.load("../data/data_generator_output/data.0000.y.npy").astype("float32")
+    X_val   = np.load("../data/data_generator_output/data.0001.x.npy").astype("float32")
+    y_val   = np.load("../data/data_generator_output/data.0001.y.npy").astype("float32")
 
     ##### MODEL SETUP #####
     # model = FI_CNN_model(NUM_CHANNELS)
