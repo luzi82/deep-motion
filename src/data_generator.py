@@ -138,7 +138,7 @@ def transform_im(num_channels, final_im_size, batch_i):
     im = imresize(im, final_im_size)
     im = crop(im, crop_size=final_im_size, crop_corner_loc="random", random_crop_amount=1.0, rand_seed=rand_seed)
 
-    im = np.transpose(im, (2, 0, 1))
+    # im = np.transpose(im, (2, 0, 1))
 
     return im
 
@@ -207,7 +207,7 @@ def batch_generator(batch_size, num_channels, batch_image_size):
         batch_after_transform = transform_batch_parallel(batch_before_transform, num_channels=num_channels, final_im_size=batch_image_size)
         # batch_after_transform = transform_batch(batch_before_transform, num_channels=NUM_CHANNELS, final_im_size=batch_im_size)
 
-        X_batch = np.concatenate((batch_after_transform[:batch_size], batch_after_transform[batch_size:batch_size*2]), axis=1)
+        X_batch = np.concatenate((batch_after_transform[:batch_size], batch_after_transform[batch_size:batch_size*2]), axis=3)
         y_batch = batch_after_transform[batch_size*2:]
 
         yield X_batch.astype("float32") / 255., y_batch.astype("float32") / 255.
@@ -354,21 +354,21 @@ def main():
         # # code to inspect images in batch
         if ENABLE_PLT_SHOW:
             for ii in range(len(X)):
-                X_0 = X[ii, :3, :, :]
-                X_1 = X[ii, 3:, :, :]
+                X_0 = X[ii, :, :, :3]
+                X_1 = X[ii, :, :, 3:]
                 X_blend = (X_0 + X_1) * 255. / 2
                 plt.figure()
                 plt.title("First Frame")
-                plt.imshow((np.transpose(X_0, (1, 2, 0))*255).astype("uint8"))
+                plt.imshow((X_0*255).astype("uint8"))
                 plt.figure()
                 plt.title("Middle Frame")
-                plt.imshow((np.transpose(y[ii], (1, 2, 0))*255).astype("uint8"))
+                plt.imshow((y[ii]*255).astype("uint8"))
                 plt.figure()
                 plt.title("Last Frame")
-                plt.imshow((np.transpose(X_1, (1, 2, 0))*255).astype("uint8"))
+                plt.imshow((X_1*255).astype("uint8"))
                 plt.figure()
                 plt.title("Blended")
-                plt.imshow(np.transpose(X_blend, (1, 2, 0)).astype("uint8"))
+                plt.imshow(X_blend.astype("uint8"))
                 plt.show()
 
         # if i % 10 == 0:
