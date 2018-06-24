@@ -308,6 +308,8 @@ def main():
     # np.save("X_small_test", X[110000:120000])
     # np.save("y_small_test", y[110000:120000])
 
+    ENABLE_PLT_SHOW = False
+
     start_time = time.time()
     i = 0
     batch_start_time = time.time()
@@ -337,23 +339,24 @@ def main():
         # np.save("y_CORE1_small_train_" + str(i), y)
 
         # # code to inspect images in batch
-        for ii in range(len(X)):
-            X_0 = X[ii, :3, :, :]
-            X_1 = X[ii, 3:, :, :]
-            X_blend = (X_0 + X_1) * 255. / 2
-            plt.figure()
-            plt.title("First Frame")
-            plt.imshow((np.transpose(X_0, (1, 2, 0))*255).astype("uint8"))
-            plt.figure()
-            plt.title("Middle Frame")
-            plt.imshow((np.transpose(y[ii], (1, 2, 0))*255).astype("uint8"))
-            plt.figure()
-            plt.title("Last Frame")
-            plt.imshow((np.transpose(X_1, (1, 2, 0))*255).astype("uint8"))
-            plt.figure()
-            plt.title("Blended")
-            plt.imshow(np.transpose(X_blend, (1, 2, 0)).astype("uint8"))
-            plt.show()
+        if ENABLE_PLT_SHOW:
+            for ii in range(len(X)):
+                X_0 = X[ii, :3, :, :]
+                X_1 = X[ii, 3:, :, :]
+                X_blend = (X_0 + X_1) * 255. / 2
+                plt.figure()
+                plt.title("First Frame")
+                plt.imshow((np.transpose(X_0, (1, 2, 0))*255).astype("uint8"))
+                plt.figure()
+                plt.title("Middle Frame")
+                plt.imshow((np.transpose(y[ii], (1, 2, 0))*255).astype("uint8"))
+                plt.figure()
+                plt.title("Last Frame")
+                plt.imshow((np.transpose(X_1, (1, 2, 0))*255).astype("uint8"))
+                plt.figure()
+                plt.title("Blended")
+                plt.imshow(np.transpose(X_blend, (1, 2, 0)).astype("uint8"))
+                plt.show()
 
         # if i % 10 == 0:
         #     print "myBatchGenerator:", i, "batches done in", (time.time() - start_time) / 60.0, "minutes..."
