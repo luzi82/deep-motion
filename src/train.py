@@ -40,7 +40,8 @@ from data_generator import batch_generator, kitti_batch_generator
 from more_loss_fns import *
 
 LEARNING_RATE = 0.0001
-BATCH_SIZE = 16
+# BATCH_SIZE = 16
+BATCH_SIZE = 4
 NUM_EPOCHS = 1000
 NUM_CHANNELS = 3
 
@@ -78,10 +79,8 @@ def main():
     # X_val = np.load("X_val_KITTI.npy").astype("float32") / 255.
     # y_val = np.load("y_val_KITTI.npy").astype("float32") / 255.
     
-    X_train = np.load("../data/data_generator_output/data.0000.x.npy").astype("float32")
-    y_train = np.load("../data/data_generator_output/data.0000.y.npy").astype("float32")
-    X_val   = np.load("../data/data_generator_output/data.0001.x.npy").astype("float32")
-    y_val   = np.load("../data/data_generator_output/data.0001.y.npy").astype("float32")
+    X_val   = np.load("../data/data_generator_output/data.0000.x.npy").astype("float32")
+    y_val   = np.load("../data/data_generator_output/data.0000.y.npy").astype("float32")
 
     ##### MODEL SETUP #####
     # model = FI_CNN_model(NUM_CHANNELS)
@@ -178,7 +177,8 @@ def main():
     print("Begin training...")
     hist = model.fit_generator(
         generator=batch_generator(BATCH_SIZE, NUM_CHANNELS, BATCH_IMAGE_SIZE),
-        samples_per_epoch=800,
+        # samples_per_epoch=800,
+        samples_per_epoch=4,
         nb_epoch=NUM_EPOCHS,
         callbacks=callbacks,
         validation_data=(X_val, y_val),
