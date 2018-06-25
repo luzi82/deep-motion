@@ -1,4 +1,4 @@
-## Problem in origianl deep-motion
+## Problem in original deep-motion
 
  - KITTI download output 404
  - Hard code path
